@@ -129,6 +129,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     'greatkart/static',
 ]
@@ -138,8 +139,10 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 
+from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
+    
 }
 
 # SMTP Configuration
@@ -148,6 +151,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'guptaashii40@gmail.com'
 EMAIL_HOST_PASSWORD = 'aastha12345'
 EMAIL_USE_TLS = True
+
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
